@@ -1,0 +1,36 @@
+<div class="col-sm-3">
+  <select id="paramStatus" name="paramStatus" class=" form-control"
+  onChange="showInput()">
+    <option value="">请选择驳回原因</option>
+    <option value="">图像不清晰</option>
+    <option value="">不属于金融资产证明</option>
+    <option value="">金融资产金额不足</option>
+    <option value="others">其他原因</option>
+  </select>
+</div>
+
+<div id="divReason" style="display: none">
+  <label class="col-sm-1 control-label">其他原因</label>
+  <div class="col-sm-3">
+    <input id="inputReason" name="inputReason" class="form-control"
+    placeholder="限十个字以内"  type="text" maxlength="10">
+  </div>
+</div>
+              
+              
+<script src="${ctx}/static/js/jquery.min.js?v=2.1.4"></script>
+<script src="${ctx}/static/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="${ctx}/static/js/contitemtabs.min.js?v=1.0.0"></script>
+<script src="${ctx}/static/plugins/layui/layui.all.js"></script>
+<script src="${ctx}/static/js/bootstrapValidator.min.js"></script>
+<script src="${ctx}/static/js/plugins/mloading/jquery.mloading.js"></script>
+
+<script type="text/javascript">
+  function showInput() {
+    if ($("#paramStatus option:selected").val() == "others") {
+      $("#divReason").toggle();
+    } else {
+      $("#divReason").hide();
+    }
+  }
+</script>
