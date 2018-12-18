@@ -1,0 +1,29 @@
+<div class="row">
+    <c:if test="${not empty pics }">
+      <c:forEach items="${pics}" var="pic" step="1" varStatus="status">
+        <div class="col-sm-6 col-md-3"  id="zoomImage" >
+            <img id="tong${status.count-1}" src="${pics[status.count-1]}"
+              style="max-width: 200px; max-height: 300px;" alt="" 
+              onclick="zoomImage('${status.count-1}','${pics[status.count-1]}')">
+        </div>
+      </c:forEach>
+    </c:if>
+  </div>
+
+ <script src="${ctx}/static/plugins/layui/layui.all.js"></script>
+ <script type="text/javascript">
+ function zoomImage(index,url) {
+        $("#tong"+index).attr("src", url);
+        var height=400;
+        var width=600;
+        layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 1,
+            shadeClose: true,
+            area: [width + 'px', height + 'px'], //宽高
+            content: "<img src=" + url + " />"	
+        });
+  } 
+  
+</script>
